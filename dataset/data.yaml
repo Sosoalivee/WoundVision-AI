@@ -1,0 +1,18 @@
+# dataset/data.yaml
+
+# Root path that contains images/ and labels/
+path: C:/Users/bhuva/Desktop/WoundVision-AI/dataset
+
+train: images/train
+val: images/val
+test: images/test
+
+names:
+  0: Abrasions
+  1: Bruises
+  2: Burns
+  3: Cut
+  4: Ingrown_nails
+  5: Laceration
+  6: Normal_skin
+  7: Stab_wound

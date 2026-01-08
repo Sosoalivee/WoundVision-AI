@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+</head>
+<body>
+    <h1>Prediction: {{ prediction }}</h1>
+    <p>Confidence: {{ '%.3f'|format(confidence) }}</p>
+
+    <h2>All probabilities</h2>
+    <ul>
+    {% for cls, prob in all_probs.items() %}
+        <li>{{ cls }}: {{ '%.3f'|format(prob) }}</li>
+    {% endfor %}
+    </ul>
+
+    <h2>Image</h2>
+    <img src="data:image/jpeg;base64,{{ image_data }}" alt="{{ filename }}" style="max-width:400px;">
+    <br>
+    <a href="{{ url_for('upload_file') }}">Back</a>
+</body>
+</html>
