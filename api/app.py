@@ -12,7 +12,14 @@ ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-model = YOLO(r"C:\Users\bhuva\Desktop\WoundVision-AI\runs\wound_cls4\weights\best.pt")
+
+
+# Get the base directory (one level up from api folder)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+WEIGHTS_PATH = os.path.join(BASE_DIR, "runs", "wound_cls4", "weights", "best.pt")
+
+model = YOLO(WEIGHTS_PATH)
+
 
 def allowed_file(filename):
     return '.' in filename and \
